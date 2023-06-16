@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detailed Form</title>
+</head>
+<body style="background-color:yellow;text-align:center";>
+<h2>Detailed form</h2>
+
+<form method="get">
+    {% csrf_token %}
+    <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" ><br>
+        <label for="dob" class="form-label">DOB</label>
+    <input type="date" class="form-control" id="dob"><br>
+        <label for="age" class="form-label">Age</label>
+    <input type="number" class="form-control" id="age"><br>
+        <label for="gender" class="form-label">Gender</label>
+    <input type="text" class="form-control" id="gender"><br>
+         <label for="phone number" class="form-label">Phone number</label>
+    <input type="number" class="form-control" id="phone number"><br>
+         <label for="mailid" class="form-label">Email id</label>
+    <input type="email" class="form-control" id="mailid"><br>
+         <label for="address" class="form-label">Address</label>
+    <input type="text" class="form-control" id="address"><br>
+        <label>Department</label>
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Department</option>
+         <option value="1">Computer science</option>
+         <option value="2">Biology</option>
+         <option value="3">Humanities</option>
+            <option value="4">Commerce</option>
+        </select><br>
+
+         <label>Purpose</label>
+        <select class="form-select" aria-label="Default select example">
+            <option selected>purpose</option>
+         <option value="1">For enquiry</option>
+         <option value="2">Place order</option>
+         <option value="3">Return</option>
+        </select><br>
+
+         <label>Materials provided</label>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="pen" id="pen">
+        <label class="form-check-label" for="pen">
+         Pen</label><br>
+            <input class="form-check-input" type="radio" name="book" id="book">
+        <label class="form-check-label" for="book">
+         Book</label><br>
+            <input class="form-check-input" type="radio" name="exam paper" id="exam paper">
+        <label class="form-check-label" for="exam paper">
+         Exam paper</label><br>
+            <input class="form-check-input" type="radio" name="chart paper" id="chart paper">
+        <label class="form-check-label" for="chart paper">
+         Chart paper</label><br>
+            <input class="form-check-input" type="radio" name="colour pencils" id="colourpencils">
+        <label class="form-check-label" for="colourpencils">
+         Colour pencils</label><br>
+        </div>
+
+    </div>
+    <form method="post" action="{% url 'order_confirmation' %}">
+        {% csrf_token %}
+        <button type="submit">Confirm Order</button>
+    </form>
+
+    <form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+    </form>
+
+</form>
+
+</body>
+</html>
