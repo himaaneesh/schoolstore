@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Form</title>
+</head>
+<body>
+    <h1>Order Form</h1>
+    <form method="post" action="{% url 'confirm_order' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Confirm Order">
+    </form>
+    <form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+    </form>
+</body>
+</html>
